@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- ▼ 브라우저 탭 제목 -->
+<title>방유빈 · 포트폴리오</title>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script>
+/* 저장된 테마를 그리기 전에 적용 (새로고침 시 깜빡임 방지) */
+try{document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");}catch(e){}
+</script>
+</head>
+<body>
+
+<!-- ============ 네비 ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <!-- ▼ 좌측 상단 이름 -->
+    <div class="brand">방유빈</div>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#about">소개</a>
+        <a href="#stack">기술</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#activity">활동</a>
+        <a href="#contact">연락</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="라이트/다크 전환">☾</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 히어로 (첫 화면 큰 문구) ============ -->
+<section class="hero">
+  <div class="wrap">
+    <!-- ▼ 메인 카피 -->
+    <h1 class="reveal">아이디어를 제품으로<br><span class="dim">만듭니다.</span></h1>
+    <!-- ▼ 한 줄 소개 -->
+    <p class="lede reveal">게임·앱·웹·자동화를 다루는 개발자 방유빈입니다.
+      MVP로 빠르게 만들고 출시하는 걸 좋아합니다.</p>
+    <!-- ▼ 역할 뱃지 -->
+    <div class="roles reveal">
+      <span class="role">Developer</span>
+      <span class="role">Founder</span>
+      <span class="role">Game Dev</span>
+    </div>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
+      <!-- TODO: 실제 GitHub / LinkedIn 주소로 교체 -->
+      <a class="btn btn-ghost" href="https://github.com/DevLucidDreamer" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/yubin-bang-697b95404/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ About (자기소개 문단 + 우측 요약) ============ -->
+<section id="about" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal">소개</p>
+    <div class="about-grid">
+      <!-- ▼ 소개 문단 (왼쪽) -->
+      <div class="about reveal">
+        <p>건국대학교(서울) KU자유전공학부 학생으로, <strong>컴퓨터공학·경영학과·기술경영학과</strong>
+          전공진입을 준비하고 있습니다. 게임·앱·웹·자동화를 넘나들며 만드는 1인 개발자이자
+          예비 창업가입니다.</p>
+        <p>완벽한 설계보다 <strong>동작하는 최소 버전(MVP)</strong>을 먼저 내놓고,
+          유지보수가 쉬운 구조로 다듬어 가는 방식을 선호합니다. AI는 생산성 도구로 적극 쓰되,
+          그 결과를 통제하에 두는 태도를 지키려 합니다.</p>
+      </div>
+      <!-- ▼ 요약 정보 (오른쪽 세로 목록) -->
+      <div class="facts reveal">
+        <div class="fact"><div class="k">Education</div><div class="v">건국대(서울) KU자유전공학부<br>컴퓨터공학 · 경영학 · 기술경영학 전공진입 준비</div></div>
+        <div class="fact"><div class="k">Activity</div><div class="v">건국대학교 게임 개발 중앙동아리 EDGE</div></div>
+        <div class="fact"><div class="k">Focus</div><div class="v">1인 개발 · 창업 · 출시</div></div>
+        <div class="fact"><div class="k">Location</div><div class="v">Seoul, KR</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 기술 스택 (카드 4개) ============ -->
+<section id="stack" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal">기술</p>
+    <h2 class="section-title reveal">무엇으로 만드나</h2>
+    <!-- ▼ 카드 추가/수정: <div class="stack-cat …"> 블록을 복사해서 사용 -->
+    <div class="stack-grid">
+      <div class="stack-cat reveal"><h3>게임</h3><ul><li>Unity</li><li>C#</li></ul></div>
+      <div class="stack-cat reveal"><h3>앱 · 웹</h3><ul><li>Flutter / Dart</li><li>Android / ios</li><li>PWA</li></ul></div>
+      <div class="stack-cat reveal"><h3>자동화</h3><ul><li>Python</li><li>트레이딩 봇</li></ul></div>
+      <div class="stack-cat reveal"><h3>인프라</h3><ul><li>Supabase</li><li>Cloudflare Pages</li><li>Git / GitHub</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 프로젝트 (내용은 data/projects.js 에서 수정!) ============ -->
+<section class="projects-head">
+  <div class="wrap">
+    <p class="eyebrow reveal">프로젝트</p>
+    <h2 class="section-title reveal">프로젝트</h2>
+  </div>
+</section>
+<div id="projects"><!-- js/main.js 가 data/projects.js 내용으로 채움 --></div>
+
+<!-- ============ 수상 · 활동 ============ -->
+<section id="activity" class="pad">
+  <div class="wrap">
+    <p class="eyebrow reveal">활동</p>
+    <h2 class="section-title reveal">수상 · 활동</h2>
+    <div class="reveal">
+      <!-- ▼ 활동 추가: 아래 <div class="activity"> 블록을 복사해서 사용 -->
+      <div class="activity">
+        <div class="yr">1위</div>
+        <div class="desc">2025 경기도 고교연합 인공지능 메이커톤 1위<span>멀티모달 면접 준비 프로그램 PREP</span></div>
+      </div>
+      <div class="activity">
+        <div class="yr">활동</div>
+        <div class="desc">건국대학교 게임 개발 중앙동아리 EDGE<span>게임 기획 및 개발</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">연락</p>
+    <h2 class="reveal">함께 만들 일이 있다면</h2>
+    <p class="reveal">취업 · 협업 · 대회 어떤 이야기든 환영합니다.</p>
+    <div class="contact-links reveal">
+      <!-- TODO: 실제 주소로 교체 -->
+      <a class="btn btn-primary" href="mailto:devdaydreamstudio@gmail.com">이메일 보내기</a>
+      <a class="btn btn-ghost" href="https://github.com/DevLucidDreamer" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/yubin-bang-697b95404/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><p>© 2026 방유빈</p></div></footer>
+
+<!-- 순서 중요: 데이터 → 로직 -->
+<script src="data/projects.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
