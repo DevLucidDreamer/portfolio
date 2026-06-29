@@ -1,7 +1,7 @@
 # 포트폴리오 사이트
 
 빌드 과정이 없는 정적 사이트. `index.html`을 브라우저로 열면 바로 동작하고,
-GitHub Pages에 그대로 올리면 배포 끝.
+Cloudflare Pages에 그대로 올리면 배포 끝.
 
 ## 1. 폴더 구조
 
@@ -61,30 +61,40 @@ README.md         ← 이 문서
 | 브라우저 탭 제목 | `<title>` |
 | 색상 테마 | `css/style.css` 맨 위 `:root` 변수 |
 
-## 5. GitHub Pages 배포
+## 5. Cloudflare Pages 배포
 
-빌드가 없으므로 GitHub Actions 불필요. main 브랜치 루트에서 바로 서빙.
+빌드가 없으므로 빌드 명령도 불필요. GitHub 저장소에 연결해 두면 push 할 때마다 자동 배포된다.
 
-1. GitHub에서 새 저장소 생성 (예: `portfolio`)
-2. 이 폴더에서:
-   ```
-   git init
-   git add .
-   git commit -m "포트폴리오 사이트"
-   git branch -M main
-   git remote add origin https://github.com/<아이디>/portfolio.git
-   git push -u origin main
-   ```
-3. 저장소 페이지 → **Settings** → 왼쪽 메뉴 **Pages**
-4. **Source**: `Deploy from a branch` 선택
-5. **Branch**: `main`, 폴더 `/ (root)` 선택 후 **Save**
-6. 1~2분 뒤 `https://<아이디>.github.io/portfolio/` 에서 확인
+### 5-1. GitHub에 코드 올리기 (이미 했다면 건너뛰기)
 
-> 저장소 이름을 `<아이디>.github.io` 로 만들면 `https://<아이디>.github.io/` 루트 주소로 서빙된다.
+```
+git add .
+git commit -m "포트폴리오 사이트"
+git push
+```
 
-**커스텀 도메인:** 루트에 `CNAME` 파일을 만들고 도메인 한 줄(예: `bang6bin.com`)만 적어 커밋하면 됨 (DNS는 도메인 업체에서 GitHub Pages로 연결).
+### 5-2. Cloudflare Pages 연결
 
-이후 수정사항은 `git add . && git commit -m "수정" && git push` 만 하면 자동 반영.
+1. [Cloudflare 대시보드](https://dash.cloudflare.com) 로그인 (무료 계정이면 충분)
+2. 왼쪽 메뉴 **Workers & Pages** → **Create** → **Pages** 탭 → **Connect to Git**
+3. GitHub 계정 인증 후 이 저장소(`portfolio`) 선택 → **Begin setup**
+4. 빌드 설정 — 정적 사이트라 비워두면 된다:
+   | 항목 | 값 |
+   |---|---|
+   | Production branch | `main` |
+   | Framework preset | `None` |
+   | Build command | (비움) |
+   | Build output directory | `/` |
+5. **Save and Deploy** → 1분 내 `https://portfolio-xxxx.pages.dev` 주소로 배포 완료
+
+이후 수정사항은 `git add . && git commit -m "수정" && git push` 만 하면 자동 반영된다.
+
+### 5-3. 커스텀 도메인 (선택)
+
+프로젝트 페이지 → **Custom domains** → **Set up a domain** → 도메인 입력(예: `bang6bin.com`).
+도메인을 Cloudflare에서 관리 중이면 DNS 레코드가 자동 추가되고, 외부 업체면 안내되는 CNAME만 등록하면 된다. HTTPS 인증서도 Cloudflare가 자동 발급한다.
+
+> **참고 (CLI 직접 배포):** Git 연결 없이 올리려면 `npx wrangler pages deploy . --project-name portfolio` 로도 가능하다.
 
 ## 6. 로컬 미리보기
 

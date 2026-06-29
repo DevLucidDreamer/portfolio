@@ -1,3 +1,8 @@
 .DS_Store
 Thumbs.db
 portfolio_1.html
+
+# Cloudflare / wrangler
+node_modules/
+.wrangler/
+.dev.vars

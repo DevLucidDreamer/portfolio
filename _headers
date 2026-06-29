@@ -1,0 +1,25 @@
+# Cloudflare Pages 응답 헤더 설정
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# 모든 경로 공통 보안 헤더
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# HTML은 항상 최신으로 (배포 즉시 반영)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS/JS는 짧게 캐시 + 재검증 (파일명이 고정이라 길게 잡지 않음)
+/css/*
+  Cache-Control: public, max-age=3600, must-revalidate
+/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
+/data/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# 이미지는 길게 캐시 (바뀔 땐 보통 파일명이 달라짐)
+/images/*
+  Cache-Control: public, max-age=2592000
