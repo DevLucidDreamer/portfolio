@@ -44,10 +44,10 @@ const PROJECTS = [
     image: ""
   },
   {
-    title: "RedVeil",
-    desc: "2.5D 픽셀아트 어드벤처 스토리 게임",
+    title: "TimeToGym",
+    desc: "위젯으로 헬스장 당일 영업시간을 한눈에 보는 서비스",
     award: "",
-    tech: ["Unity", "C#", "픽셀아트"],   // TODO: 강조할 기술로 다듬기
+    tech: ["위젯", "Android"],   // TODO: 실제 사용 기술로 교체
     align: "right",
     image: ""
   }
